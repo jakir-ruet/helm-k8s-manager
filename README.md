@@ -1,8 +1,4 @@
-[![LinkedIn][linkedin-shield-lapissoft]][linkedin-url-lapissoft]
-[![Facebook-Page][facebook-shield-lapissoft]][facebook-url-lapissoft]
-[![Youtube][youtube-shield-lapissoft]][youtube-url-lapissoft]
-
-## Visit Us [Lapis Soft](http://www.lapissoft.com)
+## More About Me – [Take a Look!](http://www.mjakaria.me)
 
 ### Welcome Helm Learning
 
