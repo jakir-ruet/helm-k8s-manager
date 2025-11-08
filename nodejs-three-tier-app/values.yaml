@@ -1,0 +1,47 @@
+namespace: nodejs-app
+replicaCount: 1
+
+image:
+  repository: jakirbd
+  pullPolicy: IfNotPresent
+
+backend:
+  image: "{{ .Values.image.repository }}/backend:latest"
+  containerPort: 5000
+  servicePort: 5000
+  env:
+    - name: NODE_ENV
+      value: production
+    - name: DB_HOST
+      value: mysql
+    - name: DB_USER
+      valueFrom:
+        secretKeyRef:
+          name: mysql-secret
+          key: username
+    - name: DB_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: mysql-secret
+          key: password
+    - name: DB_NAME
+      value: nodeappdb
+
+frontend:
+  image: "{{ .Values.image.repository }}/frontend:latest"
+  containerPort: 80
+  servicePort: 80
+
+mysql:
+  image: mysql:8.0
+  rootPassword: Sql@054003
+  username: jakir
+  password: Sql@054003
+  database: three_tier_node_app
+  port: 3306
+
+ingress:
+  enabled: true
+  className: nginx
+  hostname: nodejs.local
+  path: /
